@@ -1,0 +1,76 @@
+*, ::after,::before{
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+   --cell-size: 90px;
+   --mark-size: calc(var(--cell-size) * .9);
+}
+
+body{
+   background-color: black;
+}
+
+.miniBoard{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, auto);
+    position: relative;
+}
+
+.cell{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.miniBoard::after{
+    content: '';
+    width: calc(var(--cell-size) * .8);
+    height: calc(var(--cell-size) * .8);
+    background-color: greenyellow;
+    opacity: .99;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.cell:first-child::before,
+.cell:nth-child(4)::before,
+.cell:nth-child(13)::before,
+.cell:last-child::before
+{
+    content: '';
+    width: calc(var(--cell-size)* .8);
+    height: calc(var(--cell-size)* .7);
+    background-color: greenyellow;
+    opacity: .3;
+    position: absolute;
+    transform: rotate(45deg)
+}
+
+.cell:nth-child(2)::before,
+.cell:nth-child(3)::before,
+.cell:nth-child(5)::before,
+.cell:nth-child(8)::before,
+.cell:nth-child(9)::before,
+.cell:nth-child(12)::before,
+.cell:nth-child(14)::before,
+.cell:nth-child(15)::before{
+   content: '';
+   width: calc(var(--cell-size) * .7);
+   height: calc(var(--cell-size) * .85);
+   background-color: greenyellow;
+   position: absolute;
+   border-radius: 25px;
+}
+
